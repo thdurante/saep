@@ -109,11 +109,7 @@ public class RepositorioDeResolucoes implements ResolucaoRepository {
     @Override
     public boolean remove(String identificador) {
         DeleteResult deleteResult = resolucoesCollection.deleteOne(eq("_id", identificador));
-
-        if (deleteResult.wasAcknowledged() && deleteResult.getDeletedCount() > 0) {
-            return true;
-        }
-        return false;
+        return deleteResult.wasAcknowledged() && deleteResult.getDeletedCount() > 0;
     }
 
     /**
