@@ -379,6 +379,8 @@ public class RepositorioDeResolucoesTest {
     @Test
     public void removeTipoPeloCodigo() {
         repositorioDeResolucoes.removeTipo("APG");
+        Tipo tipoRecuperado = repositorioDeResolucoes.tipoPeloCodigo("APG");
+        assertNull("deve ser null", tipoRecuperado);
     }
 
     @Test(expected = ResolucaoUsaTipoException.class)
