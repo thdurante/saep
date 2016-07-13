@@ -15,3 +15,12 @@ dependencies {
     compile 'org.mongodb:mongo-java-driver:3.2.2'
     compile 'com.github.kyriosdata.saep:saep-dominio:1.0.5'
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
