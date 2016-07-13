@@ -3,7 +3,9 @@ package br.com.inf.saep.persistencia;
 import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.*;
 
@@ -15,6 +17,8 @@ import static org.junit.Assert.assertNotNull;
 
 public class RepositorioDeResolucoesTest {
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
     private RepositorioDeResolucoes repositorioDeResolucoes;
 
     /*
@@ -186,14 +190,20 @@ public class RepositorioDeResolucoesTest {
         new RepositorioDeResolucoes("saep-sandbox", "server.thiagodurante.com.br", 27017).clearDB();
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void persisteResolucaoSemNenhumAtributoObrigatorio() {
+        thrown.expect(CampoExigidoNaoFornecido.class);
+        thrown.expectMessage("nome");
+
         Resolucao resolucao = new Resolucao(null, null, null, null, null);
         repositorioDeResolucoes.persiste(resolucao);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void persisteResolucaoSemId() {
+        thrown.expect(CampoExigidoNaoFornecido.class);
+        thrown.expectMessage("nome");
+
         Resolucao resolucao = new Resolucao(
                 null,
                 "CONSUNI No 32/2013",
@@ -206,8 +216,11 @@ public class RepositorioDeResolucoesTest {
         repositorioDeResolucoes.persiste(resolucao);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void persisteResolucaoSemNome() {
+        thrown.expect(CampoExigidoNaoFornecido.class);
+        thrown.expectMessage("nome");
+
         String id = UUID.randomUUID().toString();
         Resolucao resolucao = new Resolucao(
                 id,
@@ -221,8 +234,11 @@ public class RepositorioDeResolucoesTest {
         repositorioDeResolucoes.persiste(resolucao);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void persisteResolucaoSemDescricao() {
+        thrown.expect(CampoExigidoNaoFornecido.class);
+        thrown.expectMessage("descricao");
+
         String id = UUID.randomUUID().toString();
         Resolucao resolucao = new Resolucao(
                 id,
