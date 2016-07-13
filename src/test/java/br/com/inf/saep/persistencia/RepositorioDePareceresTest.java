@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNull;
 
 public class RepositorioDePareceresTest {
 
-    RepositorioDePareceres repositorioDePareceres;
+    private RepositorioDePareceres repositorioDePareceres;
 
     /*
     * PRIVATE METHODS

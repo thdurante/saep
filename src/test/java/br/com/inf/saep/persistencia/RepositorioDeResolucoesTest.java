@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class RepositorioDeResolucoesTest {
 
-    RepositorioDeResolucoes repositorioDeResolucoes;
+    private RepositorioDeResolucoes repositorioDeResolucoes;
 
     /*
     * PRIVATE METHODS
