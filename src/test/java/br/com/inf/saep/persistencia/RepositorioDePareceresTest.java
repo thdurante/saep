@@ -475,6 +475,16 @@ public class RepositorioDePareceresTest {
     }
 
     @Test
+    public void persisteRadocDuplicado() {
+        thrown.expect(IdentificadorExistente.class);
+        thrown.expectMessage("já persistido");
+
+        String radocId = UUID.randomUUID().toString();
+        repositorioDePareceres.persisteRadoc(getRadocValido(radocId));
+        repositorioDePareceres.persisteRadoc(getRadocValido(radocId));
+    }
+
+    @Test
     public void recuperaRadocById() {
         String radocId = UUID.randomUUID().toString();
         String returnedId = repositorioDePareceres.persisteRadoc(getRadocValido(radocId));

@@ -184,7 +184,7 @@ public class RepositorioDePareceres implements ParecerRepository {
     public String persisteRadoc(Radoc radoc) {
         MongoCollection radocsCollection = database.abrirConexao("radocs");
 
-        if (byId(radoc.getId()) != null) {
+        if (radocById(radoc.getId()) != null) {
             throw new IdentificadorExistente("já persistido");
         }
 
