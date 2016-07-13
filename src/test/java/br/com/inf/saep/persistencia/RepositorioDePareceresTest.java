@@ -16,6 +16,8 @@ import static org.junit.Assert.assertNull;
 
 public class RepositorioDePareceresTest {
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
     private RepositorioDePareceres repositorioDePareceres;
 
     /*
@@ -166,9 +168,6 @@ public class RepositorioDePareceresTest {
     /*
     * TESTS
     * */
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void setUp() {
