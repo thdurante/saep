@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertNotNull;
 
 public class DBManagerTest {
 
-    MongoClient mongoClient;
+    private MongoClient mongoClient;
 
     /*
      *  PRIVATE METHODS
